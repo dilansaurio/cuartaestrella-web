@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import StarCursor from "@/components/ui/StarCursor";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({
       className={`${geistSans.variable} scroll-smooth`}
     >
       <body className="min-h-screen flex flex-col font-sans antialiased bg-background text-foreground">
+        <StarCursor />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
