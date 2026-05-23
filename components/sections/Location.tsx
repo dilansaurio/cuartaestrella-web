@@ -1,3 +1,5 @@
+import { locationData } from "@/components/data/DATA_Location";
+
 export default function Location() {
   return (
     <section id="ubicacion" className="py-24 border-t border-foreground/10">
@@ -11,40 +13,29 @@ export default function Location() {
               Cómo llegar
             </h2>
             <div className="space-y-6">
-              <div>
-                <p className="text-xs font-medium tracking-widest uppercase text-foreground/40 mb-1">
-                  Dirección
-                </p>
-                <p className="text-foreground/80">
-                  Camino del Cielo 1400, Villa Las Estrellas
-                  <br />
-                  Provincia de Buenos Aires, Argentina
-                </p>
-              </div>
-              <div>
-                <p className="text-xs font-medium tracking-widest uppercase text-foreground/40 mb-1">
-                  En auto
-                </p>
-                <p className="text-sm text-foreground/60 leading-relaxed">
-                  Desde la ciudad, tomar la Ruta Provincial 6 hacia el norte y
-                  seguir la señalización del observatorio a partir del kilómetro
-                  48.
-                </p>
-              </div>
-              <div>
-                <p className="text-xs font-medium tracking-widest uppercase text-foreground/40 mb-1">
-                  Recomendación
-                </p>
-                <p className="text-sm text-foreground/60 leading-relaxed">
-                  Llevar ropa abrigada aunque sea verano: las noches de
-                  observación son frescas. Se recomienda llegar antes del
-                  horario de inicio para adaptarse a la oscuridad.
-                </p>
-              </div>
+              {locationData.details.map((detail) => (
+                <div key={detail.label}>
+                  <p className="text-xs font-medium tracking-widest uppercase text-foreground/40 mb-1">
+                    {detail.label}
+                  </p>
+                  <p className="text-sm text-foreground/60 leading-relaxed whitespace-pre-line">
+                    {detail.content}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="rounded-2xl border border-foreground/10 aspect-video bg-foreground/5 flex items-center justify-center">
-            <p className="text-sm text-foreground/30">Mapa próximamente</p>
+          <div className="rounded-2xl border border-foreground/10 overflow-hidden aspect-video">
+            <iframe
+              src={locationData.mapEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title={locationData.mapTitle}
+            />
           </div>
         </div>
       </div>

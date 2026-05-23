@@ -1,35 +1,6 @@
-const highlights = [
-  {
-    title: "Telescopios profesionales",
-    description:
-      "Observa el cielo con equipos ópticos de alta potencia, incluyendo reflectores y refractores de apertura profesional.",
-  },
-  {
-    title: "Guías especializados",
-    description:
-      "Nuestros astrónomos te acompañan durante toda la visita, explicando lo que ves y respondiendo tus preguntas.",
-  },
-  {
-    title: "Cielo sin contaminación lumínica",
-    description:
-      "Estamos ubicados en una zona de bajo impacto lumínico, lo que garantiza vistas excepcionales del firmamento.",
-  },
-  {
-    title: "Planetas y objetos del espacio profundo",
-    description:
-      "Dependiendo de la época del año, podrás ver planetas del sistema solar, cúmulos estelares, nebulosas y galaxias.",
-  },
-  {
-    title: "Charlas astronómicas",
-    description:
-      "Cada visita incluye una charla introductoria sobre el cielo nocturno y los objetos que observarás esa noche.",
-  },
-  {
-    title: "Apto para todas las edades",
-    description:
-      "Diseñamos la experiencia para que sea accesible y emocionante tanto para niños como para adultos y entusiastas.",
-  },
-];
+import RevealOnScroll from "@/components/ui/RevealOnScroll";
+import { highlights } from "@/components/data/DATA_Experience";
+
 
 export default function Experience() {
   return (
@@ -49,16 +20,15 @@ export default function Experience() {
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {highlights.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-2xl border border-foreground/10 p-6 hover:border-foreground/25 transition-colors"
-            >
-              <h3 className="font-semibold mb-3">{item.title}</h3>
-              <p className="text-sm text-foreground/55 leading-relaxed">
-                {item.description}
-              </p>
-            </div>
+          {highlights.map((item, i) => (
+            <RevealOnScroll key={item.title} delay={i * 90}>
+              <div className="rounded-2xl border border-foreground/10 p-6 hover:border-foreground/25 transition-colors h-full">
+                <h3 className="font-semibold mb-3">{item.title}</h3>
+                <p className="text-sm text-foreground/55 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>

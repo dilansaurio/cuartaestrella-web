@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import StarCursor from "@/components/ui/StarCursor";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -31,6 +32,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col font-sans antialiased bg-background text-foreground">
         <StarCursor />
+        <ScrollProgress />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

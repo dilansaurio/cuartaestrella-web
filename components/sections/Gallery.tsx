@@ -1,6 +1,6 @@
 
-
-
+import RevealOnScroll from "@/components/ui/RevealOnScroll";
+import { galleryImages } from "@/components/data/DATA_Gallery";
 
 export default function Gallery() {
   return (
@@ -13,36 +13,15 @@ export default function Gallery() {
                 Imágenes de nuestras noches estrelladas
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <img
-                    src="/gallery1.jpg"
-                    alt="Vista del cielo nocturno desde el observatorio"
-                    className="rounded-2xl object-cover w-full h-64"
-                />
-                <img
-                    src="/gallery2.jpg"
-                    alt="Telescopio apuntando a las estrellas"
-                    className="rounded-2xl object-cover w-full h-64"
-                />
-                <img
-                    src="/gallery3.jpg"
-                    alt="Grupo de personas observando el cielo con telescopios"
-                    className="rounded-2xl object-cover w-full h-64"
-                />
-                <img
-                    src="/gallery4.jpg"
-                    alt="Nebulosa capturada desde el observatorio"
-                    className="rounded-2xl object-cover w-full h-64"
-                />
-                <img
-                    src="/gallery5.jpg"
-                    alt="Planetas visibles desde el observatorio"
-                    className="rounded-2xl object-cover w-full h-64"
-                />
-                <img
-                    src="/gallery6.jpg"
-                    alt="Cielo estrellado con la Vía Láctea visible"
-                    className="rounded-2xl object-cover w-full h-64"
-                />
+                {galleryImages.map((img, i) => (
+                  <RevealOnScroll key={img.src} delay={i * 80}>
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="rounded-2xl object-cover w-full h-64"
+                    />
+                  </RevealOnScroll>
+                ))}
             </div>
         </div>
     </section>

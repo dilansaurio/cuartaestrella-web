@@ -1,3 +1,5 @@
+import { contactLinks } from "@/components/data/DATA_Contact";
+
 export default function Contact() {
   return (
     <section id="contacto" className="py-24 border-t border-foreground/10">
@@ -16,28 +18,19 @@ export default function Contact() {
             </p>
           </div>
           <div className="space-y-6">
-            <div>
-              <p className="text-xs font-medium tracking-widest uppercase text-foreground/40 mb-1">
-                Email
-              </p>
-              <a
-                href="mailto:visitas@cuartaestrella.com"
-                className="font-medium hover:text-foreground/70 transition-colors"
-              >
-                visitas@cuartaestrella.com
-              </a>
-            </div>
-            <div>
-              <p className="text-xs font-medium tracking-widest uppercase text-foreground/40 mb-1">
-                Teléfono
-              </p>
-              <a
-                href="tel:+541100000000"
-                className="font-medium hover:text-foreground/70 transition-colors"
-              >
-                +54 11 0000-0000
-              </a>
-            </div>
+            {contactLinks.map((link) => (
+              <div key={link.label}>
+                <p className="text-xs font-medium tracking-widest uppercase text-foreground/40 mb-1">
+                  {link.label}
+                </p>
+                <a
+                  href={link.href}
+                  className="font-medium hover:text-foreground/70 transition-colors"
+                >
+                  {link.value}
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </div>
