@@ -17,6 +17,9 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full pointer-events-none"
         aria-hidden="true"
       />
+
+      {/* Passing moon */}
+      <div className="moon" aria-hidden="true" />
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
         <p className="text-sm font-medium tracking-widest uppercase text-white/40 mb-6">
           Observatorio Astronómico
